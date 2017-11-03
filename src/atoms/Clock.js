@@ -1,0 +1,1 @@
+export default const Clock = props => (<div>00:00:00 PM</div>)

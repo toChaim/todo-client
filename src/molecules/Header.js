@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const HeaderStyle = styled.div`
   text-align: center;
+  font-family: 'Indie Flower', cursive;
   color: white;
   background: black;
 `;

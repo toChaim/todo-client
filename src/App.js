@@ -9,7 +9,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header title="Welcome to your life." quote="Welcome Devine moment." />
+        <Header
+          title="Welcome to your life. Enjoy!"
+          quote="Welcome Devine moment."
+        />
       </div>
     );
   }

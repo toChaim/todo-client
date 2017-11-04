@@ -8,8 +8,8 @@ class App extends Component {
     this.state = {
       time: new Date(),
       activities: localStorage.getItem('activities') || {
-        work: { id: 0, order: 0, title: 'Work' },
-        rest: { id: 1, order: 1, title: 'Rest' }
+        work: { _id: 0, order: 0, title: 'Work' },
+        rest: { _id: 1, order: 1, title: 'Rest' }
       },
       activity: localStorage.getItem('activity') || 0
     };
@@ -38,7 +38,7 @@ class App extends Component {
           time={this.state.time}
         />
         <main>
-          <ActivityList />
+          <ActivityList activities={this.state.activities} />
         </main>
       </div>
     );

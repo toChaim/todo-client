@@ -8,8 +8,8 @@ const ClockStyle = styled.div`
   background: black;
 `;
 
-export default class Clock extends React.Component {
-  render() {
-    return <ClockStyle>{this.props.time.toLocaleTimeString()}</ClockStyle>;
-  }
-}
+const Clock = ({ time }) => (
+  <ClockStyle>{time.toLocaleTimeString()}</ClockStyle>
+);
+
+export default Clock;

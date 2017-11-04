@@ -7,6 +7,9 @@ const HeaderStyle = styled.div`
   font-family: 'Indie Flower', cursive;
   color: white;
   background: black;
+  line-height: 1;
+  letter-spacing: 0.2rem;
+  padding: 5px;
 `;
 
 const Header = ({ title, quote, time }) => (

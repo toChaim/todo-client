@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const ClockStyle = styled.div`
-  text-align: center;
   font-family: 'Anonymous Pro', monospace;
-  color: white;
-  background: black;
+  font-size: 3rem;
+  letter-spacing: 0rem;
 `;
 
 const Clock = ({ time }) => (

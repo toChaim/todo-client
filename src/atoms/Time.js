@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ClockStyle = styled.div`
+const TimeStyle = styled.div`
   font-family: 'Anonymous Pro', monospace;
   font-size: 3rem;
   letter-spacing: 0rem;
 `;
 
-const Clock = ({ time }) => (
-  <ClockStyle>{time.toLocaleTimeString()}</ClockStyle>
-);
+const Time = ({ time }) => <TimeStyle>{time.toLocaleTimeString()}</TimeStyle>;
 
-export default Clock;
+export default Time;

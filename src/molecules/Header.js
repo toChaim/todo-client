@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Clock from '../atoms/Clock';
 
 const HeaderStyle = styled.div`
   text-align: center;
@@ -8,9 +9,10 @@ const HeaderStyle = styled.div`
   background: black;
 `;
 
-const Header = ({ title, quote }) => (
+const Header = ({ title, quote, time }) => (
   <HeaderStyle>
     <h1>{title}</h1>
+    <Clock time={time} />
     <p>“{quote}”</p>
   </HeaderStyle>
 );

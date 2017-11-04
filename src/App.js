@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import Header from './molecules/Header';
+import ActivityList from './organisms/ActivityList';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { time: new Date() };
+    this.state = {
+      time: new Date(),
+      activities: localStorage.getItem('activities') || {
+        work: { id: 0, order: 0, title: 'Work' },
+        rest: { id: 1, order: 1, title: 'Rest' }
+      },
+      activity: localStorage.getItem('activity') || 0
+    };
   }
 
   componentDidMount() {
@@ -29,6 +37,9 @@ class App extends Component {
           quote="Welcome Devine moment."
           time={this.state.time}
         />
+        <main>
+          <ActivityList />
+        </main>
       </div>
     );
   }

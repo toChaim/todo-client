@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import { timeToString } from '../helpers/time';
 
 const ClockStyle = styled.div`
   text-align: center;
@@ -9,6 +8,27 @@ const ClockStyle = styled.div`
   background: black;
 `;
 
-const Clock = ({ time }) => <ClockStyle>{timeToString(time)}</ClockStyle>;
+export default class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { time: new Date() };
+  }
 
-export default Clock;
+  componentDidMount() {
+    this.timerID = setInterval(
+      () =>
+        this.setState({
+          time: new Date()
+        }),
+      1000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  render() {
+    return <ClockStyle>{this.state.time.toLocaleTimeString()}</ClockStyle>;
+  }
+}

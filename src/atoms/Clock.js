@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { timeToString } from '../helpers/time';
 
 const ClockStyle = styled.div`
   text-align: center;
@@ -8,6 +9,6 @@ const ClockStyle = styled.div`
   background: black;
 `;
 
-const Clock = props => <ClockStyle>00:00:00 PM</ClockStyle>;
+const Clock = ({ time }) => <ClockStyle>{timeToString(time)}</ClockStyle>;
 
 export default Clock;

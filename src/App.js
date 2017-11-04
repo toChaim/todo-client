@@ -12,6 +12,7 @@ class App extends Component {
         <Header
           title="Welcome to your life. Enjoy!"
           quote="Welcome Devine moment."
+          time={this.state.time}
         />
       </div>
     );

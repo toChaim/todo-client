@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TimeStyle = styled.div`
+const TimeStyle = styled.span`
   font-family: 'Anonymous Pro', monospace;
-  font-size: 3rem;
   letter-spacing: 0rem;
 `;
 

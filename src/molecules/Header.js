@@ -11,11 +11,14 @@ const HeaderStyle = styled.div`
   letter-spacing: 0.2rem;
   padding: 5px;
 `;
+const BigClock = styled.div`font-size: 2.5rem;`;
 
 const Header = ({ title, quote, time }) => (
   <HeaderStyle>
     <h1>{title}</h1>
-    <Time time={time} />
+    <BigClock>
+      <Time time={time} />
+    </BigClock>
     <p>“{quote}”</p>
   </HeaderStyle>
 );

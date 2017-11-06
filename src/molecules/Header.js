@@ -17,7 +17,9 @@ const BigClock = styled.div`font-size: 2.5rem;`;
 const Header = ({ title, quote, time, startTime, activity, nextActivity }) => {
   const endTime = new Date(+startTime + activity.time);
   const timeRemaining = new Date(+endTime - new Date());
-
+  if (+timeRemaining <= 0) {
+    nextActivity(activity.order);
+  }
   return (
     <HeaderStyle>
       <h1>{title}</h1>

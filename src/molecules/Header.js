@@ -22,6 +22,7 @@ const Header = ({ title, quote, time, startTime, activity }) => {
       <HearderAcitivityStyle>
         <Time time={startTime} />
         <div>{activity.title}</div>
+        Time remaining: <Time time={new Date(+endTime - new Date())} />
         <Time time={endTime} />
       </HearderAcitivityStyle>
       <BigClock>

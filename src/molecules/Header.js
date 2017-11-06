@@ -14,15 +14,17 @@ const HeaderStyle = styled.div`
 const HearderAcitivityStyle = styled.div`border: 1px solid red;`;
 const BigClock = styled.div`font-size: 2.5rem;`;
 
-const Header = ({ title, quote, time, startTime, activity }) => {
+const Header = ({ title, quote, time, startTime, activity, nextActivity }) => {
   const endTime = new Date(+startTime + activity.time);
+  const timeRemaining = new Date(+endTime - new Date());
+
   return (
     <HeaderStyle>
       <h1>{title}</h1>
       <HearderAcitivityStyle>
         <Time time={startTime} />
         <div>{activity.title}</div>
-        Time remaining: <Time time={new Date(+endTime - new Date())} />
+        Time remaining: <Time time={timeRemaining} />
         <Time time={endTime} />
       </HearderAcitivityStyle>
       <BigClock>

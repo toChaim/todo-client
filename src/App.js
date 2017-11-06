@@ -9,11 +9,12 @@ class App extends Component {
       startTime: new Date(),
       time: new Date(),
       activities: localStorage.getItem('activities') || {
-        0: { _id: 0, order: 0, title: 'Work', time: 25 * 60 * 1000 },
-        1: { _id: 1, order: 1, title: 'Rest', time: 5 * 60 * 1000 }
+        0: { _id: 0, order: 0, title: 'Work', time: 25 * 1000 },
+        1: { _id: 1, order: 1, title: 'Rest', time: 5 * 1000 }
       },
       activity: localStorage.getItem('activity') || 0
     };
+    this.nextActivity = this.nextActivity.bind(this);
   }
 
   componentDidMount() {
@@ -30,6 +31,14 @@ class App extends Component {
     clearInterval(this.timerID);
   }
 
+  nextActivity(order) {
+    let act = Object.values(this.activities).find(v => v.order === order + 1);
+    if (!act) {
+      act = this.activities.find(v => v.order === 0);
+    }
+    this.setState({ activity: act._id, startTime: new Date() });
+  }
+
   render() {
     return (
       <div className="App">
@@ -39,6 +48,7 @@ class App extends Component {
           startTime={this.state.startTime}
           activity={this.state.activities[this.state.activity]}
           time={this.state.time}
+          nextActivity={this.nextActivity}
         />
         <main>
           <ActivityList activities={this.state.activities} />

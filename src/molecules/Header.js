@@ -4,7 +4,7 @@ import Time from '../atoms/Time';
 
 const HeaderStyle = styled.div`
   text-align: center;
-  font-family: 'Indie Flower', cursive;
+  font-family: cursive;
   color: white;
   background: black;
   line-height: 1;

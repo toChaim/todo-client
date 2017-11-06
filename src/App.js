@@ -10,7 +10,7 @@ class App extends Component {
       time: new Date(),
       activities: localStorage.getItem('activities') || {
         0: { _id: 0, order: 0, title: 'Work', time: 25 * 60 * 1000 },
-        1: { _id: 1, order: 1, title: 'Rest', time: 25 * 60 * 1000 }
+        1: { _id: 1, order: 1, title: 'Rest', time: 5 * 60 * 1000 }
       },
       activity: localStorage.getItem('activity') || 0
     };

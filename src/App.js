@@ -36,7 +36,7 @@ class App extends Component {
       v => v.order === order + 1
     );
     if (!act) {
-      act = this.state.activities.find(v => v.order === 0);
+      act = Object.values(this.state.activities).find(v => v.order === 0);
     }
     this.setState({ activity: act._id, startTime: new Date() });
   }

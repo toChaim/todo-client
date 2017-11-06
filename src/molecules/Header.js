@@ -15,7 +15,7 @@ const HearderAcitivityStyle = styled.div`border: 1px solid red;`;
 const BigClock = styled.div`font-size: 2.5rem;`;
 
 const Header = ({ title, quote, time, startTime, activity }) => {
-  const endTime = new Date(startTime + activity.time);
+  const endTime = new Date(+startTime + activity.time);
   return (
     <HeaderStyle>
       <h1>{title}</h1>

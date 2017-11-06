@@ -7,13 +7,10 @@ const ActivityStyle = styled.div`
   border: 1px solid grey;
 `;
 
-const Activity = ({ activity }) => {
-  var strTime = new Date().toISOString().slice(0, 11) + activity.time + '.000Z';
-  return (
-    <ActivityStyle>
-      {activity.title} <Time time={new Date(strTime)} />
-    </ActivityStyle>
-  );
-};
+const Activity = ({ activity }) => (
+  <ActivityStyle>
+    {activity.title} <Time time={new Date(activity.time)} />
+  </ActivityStyle>
+);
 
 export default Activity;

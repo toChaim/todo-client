@@ -11,16 +11,24 @@ const HeaderStyle = styled.div`
   letter-spacing: 0.2rem;
   padding: 5px;
 `;
+const HearderAcitivityStyle = styled.div`border: 1px solid red;`;
 const BigClock = styled.div`font-size: 2.5rem;`;
 
-const Header = ({ title, quote, time }) => (
-  <HeaderStyle>
-    <h1>{title}</h1>
-    <BigClock>
-      <Time time={time} />
-    </BigClock>
-    <p>“{quote}”</p>
-  </HeaderStyle>
-);
-
+const Header = ({ title, quote, time, startTime, activity }) => {
+  const endTime = new Date(startTime + activity.time);
+  return (
+    <HeaderStyle>
+      <h1>{title}</h1>
+      <HearderAcitivityStyle>
+        <Time time={startTime} />
+        <div>{activity.title}</div>
+        <Time time={endTime} />
+      </HearderAcitivityStyle>
+      <BigClock>
+        <Time time={time} />
+      </BigClock>
+      <p>“{quote}”</p>
+    </HeaderStyle>
+  );
+};
 export default Header;

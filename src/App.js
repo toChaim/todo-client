@@ -6,10 +6,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      startTime: new Date(),
       time: new Date(),
       activities: localStorage.getItem('activities') || {
-        work: { _id: 0, order: 0, title: 'Work', time: '00:25:00' },
-        rest: { _id: 1, order: 1, title: 'Rest', time: '00:05:00' }
+        0: { _id: 0, order: 0, title: 'Work', time: 25 * 60 * 1000 },
+        1: { _id: 1, order: 1, title: 'Rest', time: 25 * 60 * 1000 }
       },
       activity: localStorage.getItem('activity') || 0
     };
@@ -35,6 +36,8 @@ class App extends Component {
         <Header
           title="Welcome to your life. Enjoy!"
           quote="Welcome Devine moment."
+          startTime={this.state.startTime}
+          activity={this.state.activities[this.state.activity]}
           time={this.state.time}
         />
         <main>

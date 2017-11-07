@@ -14,26 +14,28 @@ const HeaderStyle = styled.div`
 const HearderAcitivityStyle = styled.div`border: 1px solid red;`;
 const BigClock = styled.div`font-size: 2.5rem;`;
 
-const Header = ({ title, quote, time, startTime, activity, nextActivity }) => {
-  const endTime = new Date(+startTime + activity.time);
-  const timeRemaining = new Date(+endTime - new Date());
-  if (+timeRemaining <= 0) {
-    nextActivity(activity.order);
-  }
-  return (
-    <HeaderStyle>
-      <h1>{title}</h1>
-      <HearderAcitivityStyle>
-        <Time time={startTime} />
-        <div>{activity.title}</div>
-        Time remaining: <Time time={timeRemaining} />
-        <Time time={endTime} />
-      </HearderAcitivityStyle>
-      <BigClock>
-        <Time time={time} />
-      </BigClock>
-      <p>“{quote}”</p>
-    </HeaderStyle>
-  );
-};
+const Header = ({
+  title,
+  quote,
+  time,
+  startTime,
+  timeRemaining,
+  endTime,
+  activity
+}) => (
+  <HeaderStyle>
+    <h1>{title}</h1>
+    <HearderAcitivityStyle>
+      <Time time={startTime} />
+      <div>{activity.title}</div>
+      Time remaining: <Time time={timeRemaining} />
+      <Time time={endTime} />
+    </HearderAcitivityStyle>
+    <BigClock>
+      <Time time={time} />
+    </BigClock>
+    <p>“{quote}”</p>
+  </HeaderStyle>
+);
+
 export default Header;

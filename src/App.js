@@ -17,6 +17,17 @@ class App extends Component {
     this.nextActivity = this.nextActivity.bind(this);
   }
 
+  componentWillUpdate() {
+    const endTime = new Date(
+      +this.state.startTime + this.state.activities[this.state.activity].time
+    );
+    const timeRemaining = new Date(+endTime - new Date());
+
+    if (+timeRemaining <= 0) {
+      this.nextActivity(this.state.activities[this.state.activity].order);
+    }
+  }
+
   componentDidMount() {
     this.timerID = setInterval(
       () =>
@@ -42,15 +53,21 @@ class App extends Component {
   }
 
   render() {
+    const endTime = new Date(
+      +this.state.startTime + this.state.activities[this.state.activity].time
+    );
+    const timeRemaining = new Date(+endTime - new Date());
+
     return (
       <div className="App">
         <Header
           title="Welcome to your life. Enjoy!"
           quote="Welcome Devine moment."
           startTime={this.state.startTime}
+          timeRemaining={timeRemaining}
+          endTime={endTime}
           activity={this.state.activities[this.state.activity]}
           time={this.state.time}
-          nextActivity={this.nextActivity}
         />
         <main>
           <ActivityList activities={this.state.activities} />

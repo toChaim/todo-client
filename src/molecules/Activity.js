@@ -7,6 +7,8 @@ const ActivityStyle = styled.div`
   border: 1px solid grey;
   display: flex;
   justify-content: space-around;
+  height: 5%;
+  min-height: 20px;
 `;
 
 const Activity = ({ activity }) => (

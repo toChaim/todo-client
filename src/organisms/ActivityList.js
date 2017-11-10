@@ -5,6 +5,7 @@ import Activity from '../molecules/Activity';
 const ActivityListStyle = styled.div`
   font-family: 'Anonymous Pro', monospace;
   border: 3px solid black;
+  height: 100%;
 `;
 
 const ActivityList = ({ activities }) => {
